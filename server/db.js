@@ -4,7 +4,7 @@ import pg from 'pg';
 // Return DATE columns as plain 'YYYY-MM-DD' strings instead of JS Dates (avoids timezone drift).
 pg.types.setTypeParser(1082, (v) => v);
 
-const connectionString = process.env.DATABASE_URL || 'postgres://postgres:postgres@localhost:5433/npacct';
+const connectionString = process.env.DATABASE_URL || 'postgres://postgres:postgres@localhost:5443/npacct';
 const useSsl = process.env.PGSSL === 'true' || /sslmode=require/.test(connectionString);
 
 export const pool = new pg.Pool({
